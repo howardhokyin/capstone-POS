@@ -1,0 +1,32 @@
+﻿<Window x:Class="POS_System.Pages.PreviewMenuDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System"
+        mc:Ignorable="d"
+        Title="Preview (read only)" Height="800" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" MinHeight="200" MaxHeight="300"/>
+            <RowDefinition Height="600" MinHeight="600" MaxHeight="600"/>
+        </Grid.RowDefinitions>
+        <!-- category button list-->
+        <Border BorderBrush="Orange" BorderThickness="1" 
+         Margin="0,50,1,0" Grid.Column="0" Grid.Row="0">
+            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="3,3,1,2" >
+                <WrapPanel x:Name="CategoryButtonPanel" Orientation="Horizontal" Margin="0,0,0,0"/>
+            </ScrollViewer>
+        </Border>
+
+        <!-- item button list -->
+        <Border BorderBrush="Orange" BorderThickness="1" Padding="5" 
+         Margin="0,0,1,30" Grid.Column="0" Grid.Row="1" >
+            <WrapPanel Name="ItemButtonPanel" Orientation="Horizontal" Margin="0,18,-2,33"/>
+        </Border>
+    </Grid>
+
+
+
+</Window>

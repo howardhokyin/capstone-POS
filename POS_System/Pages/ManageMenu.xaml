@@ -1,0 +1,140 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="POS_System.Pages.ManageMenu"
+        Title="ManageMenu"  Height="883" Width="1777" WindowStartupLocation="CenterOwner" Background="#333333" WindowState="Maximized">
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style TargetType="{x:Type Button}" x:Key="ButtonStyle">
+            <Setter Property="Background" Value="#FF555555"/>
+            <Setter Property="Foreground" Value="#FF555555"/>
+            <Setter Property="BorderBrush" Value="Orange"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- DataGrid Style -->
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="#383838"/>
+            <Setter Property="Foreground" Value="DarkOrange"/>
+            <Setter Property="RowBackground" Value="#383838"/>
+            <Setter Property="AlternatingRowBackground" Value="#303030"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="Orange"/>
+            <Setter Property="VerticalGridLinesBrush" Value="Orange"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+
+        <!-- DataTemplate for Items -->
+        
+        <DataTemplate x:Key="ItemTemplate">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding item_name}" />
+                        <DataGridTextColumn Header="Price" Binding="{Binding ItemPrice}" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                        <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
+                        <DataGridTemplateColumn Header="Action" Width="70" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Button Padding="0" Click="EditItemButton_Click" Background="White" BorderBrush="Transparent" Width="25" Height="25" Margin="0,0,5,0" CommandParameter="{Binding}">
+                                            <Image Source="pack://application:,,,/Images/editIcon.png" Width="15" Height="15"/>
+                                        </Button>
+
+                                        <Button Padding="0" Click="DeleteItemButton_Click" Background="Transparent" BorderBrush="Transparent" Width="25" Height="25" CommandParameter="{Binding}">
+                                            <Image Source="pack://application:,,,/Images/deleteIcon.png" Width="15" Height="15"/>
+                                        </Button>
+
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+        </ScrollViewer>
+        </DataTemplate>
+        
+        <!-- DataTemplate for Categories -->
+        <DataTemplate x:Key="CategoryTemplate">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTemplateColumn Header="Actions" Width="200" IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Padding="0" Click="EditButton_Click" Background="Transparent" BorderBrush="Transparent" Width="25" Height="25" Margin="0,0,5,0" CommandParameter="{Binding}">
+                                        <Image Source="pack://application:,,,/Images/editIcon.png" Width="15" Height="15"/>
+                                    </Button>
+
+                                    <Button Padding="0" Click="DeleteButton_Click" Background="Transparent" BorderBrush="Transparent" Width="25" Height="25" CommandParameter="{Binding}">
+                                        <Image Source="pack://application:,,,/Images/deleteIcon.png" Width="15" Height="15"/>
+                                    </Button>
+                                </StackPanel>
+
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            </ScrollViewer>
+        </DataTemplate>
+        
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="103"/>
+            <RowDefinition Height="500" MinHeight="500" MaxHeight="500"/>
+            <RowDefinition MaxHeight="100"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+
+            <ColumnDefinition Width="436*"/>
+
+
+
+        </Grid.ColumnDefinitions>
+
+        <TextBlock  Text="Menu Management" TextAlignment="Center" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,0,0,0" Foreground="Orange" Grid.Row="0" Grid.Column="1" Height="60" Width="540"/>
+        <Button x:Name="BackButton" Content="Back" Height="50" Click="CloseButton_Click" ToolTip="Return to previous screen" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,0,0,10">
+            <Button x:Name="ShowItemButton" Content="View Item" Width="200" Height="50" Click="ShowItem_Click" ToolTip="Show all items"/>
+            <Button x:Name="ShowCategoryButton" Content="View Category" Width="200" Height="50" Click="ShowCategory_Click" ToolTip="Show all categories"/>
+            <Button x:Name="PreviewMenuButton" Content="Preview Menu" Width="200" Height="50" Click="PreviewMenu_Click" ToolTip="Show all categories"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="10,0,0,1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="306">
+            <Button x:Name="AddCategoryButton" Content="+ Add Category" Width="151" Height="60" Click="AddCategoryButton_Click"  Visibility="{Binding IsAddCategoryButtonVisible}"/>
+            <Button x:Name="AddItemButton" Content="+ Add Item" Width="151" Height="60" Click="AddItemButton_Click" Visibility="{Binding IsAddItemButtonVisible}"/>
+        </StackPanel>
+
+        <ContentControl Name="itemCategoryDataGrid" Grid.Column="1" Grid.Row="1" Margin="90,0,25,10"/>
+
+
+    </Grid>
+</Window>

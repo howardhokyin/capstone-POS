@@ -1,0 +1,60 @@
+﻿<Window x:Class="POS_System.EditItemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System"
+        mc:Ignorable="d"
+        Title="EditItemDialog" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="197*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10,18,10,46" Grid.Column="0" Background="Gray">
+
+            <TextBlock TextWrapping="Wrap" Text="Old item" Width="166"/>
+
+            <TextBlock x:Name="CurrentItemIdTextBlock" Text="Item ID:" Width="160"/>
+            <TextBox x:Name="CurrentIdTextBox" IsReadOnly="True" Width="160" />
+            <TextBlock x:Name="CurrentItemNameTextBlock" Text="Item Name:" Width="160"/>
+            <TextBox x:Name="CurrentNameTextBox" IsReadOnly="True" Width="160" />
+            <TextBlock x:Name="CurrentItemPriceTextBlock" Text="Item Price:" Width="160" />
+            <TextBox x:Name="CurrentPriceTextBox" IsReadOnly="True" Width="160" />
+            <TextBlock x:Name="CurrentDescriptionTextBlock" Text="Item Description:" Width="160" />
+            <TextBox x:Name="CurrentDescriptionTextBox" IsReadOnly="True" Width="160" />
+            <TextBlock x:Name="CurrentCategoryTextBlock" Text="Item Category:" Width="160" />
+            <TextBox  x:Name="CurrentCategoryComboBox" IsReadOnly="True" Width="160" />
+        </StackPanel>
+
+        <StackPanel Margin="10,18,10,46" Grid.Column="1">
+            <TextBlock TextWrapping="Wrap" Text="New item"/>
+
+            <TextBlock x:Name="ItemIdTextBlock" Text="Item ID:"/>
+            <TextBox x:Name="EditedIdTextBox"/>
+            <TextBlock x:Name="EditedItemNameTextBlock" Text="Item Name:"/>
+            <TextBox x:Name="EditedNameTextBox"/>
+            <TextBlock x:Name="EditedItemPriceTextBlock" Text="Item Price:"/>
+            <TextBox x:Name="EditedPriceTextBox"/>
+            <TextBlock x:Name="EditedItemDescriptionTextBlock" Text="Item Description:"/>
+            <TextBox x:Name="EditedItemDescriptionTextBox"/>
+            <TextBlock x:Name="EditedCategoryTextBlock" Text="Item Category:"/>
+            <ComboBox  x:Name="EditedItemCategoryComboBox" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <Button Content="Save" Click="SaveItemButton_Click"/>
+                <Button Content="Cancel" Click="CancelItemButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="-40,-2,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>

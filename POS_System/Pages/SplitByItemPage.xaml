@@ -1,0 +1,58 @@
+﻿<Window x:Class="POS_System.Pages.SplitByItemPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System.Pages"
+        mc:Ignorable="d"
+        Title="SplitByItemPage" Height="650" Width="800">
+    <Grid>
+        <Label x:Name="splitByOrderName" Content="Split By Order Items" HorizontalAlignment="Center" Height="37" Margin="64,37,0,0" VerticalAlignment="Top" Width="336" FontFamily="Verdana" FontSize="16" BorderBrush="Orange" BorderThickness="3,3,3,3" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <ListView x:Name="fullListItems" HorizontalAlignment="Left" Height="213" Margin="32,128,0,0" VerticalAlignment="Top" Width="214" BorderBrush="Orange" BorderThickness="3,3,3,3" FontFamily="Verdana" SelectionMode="Multiple">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding item_name}" />
+                    <GridViewColumn Header="Price" Width="50" DisplayMemberBinding="{Binding ItemPrice}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="splitOrderedItems" HorizontalAlignment="Left" Height="213" Margin="434,128,0,0" VerticalAlignment="Top" Width="209" BorderBrush="Orange" BorderThickness="3,3,3,3" FontFamily="Verdana">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Item Name" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding item_name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Price" Width="50" DisplayMemberBinding="{Binding ItemPrice}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="forwardButton" Content="&gt;" HorizontalAlignment="Left" Margin="274,154,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" BorderBrush="Orange" BorderThickness="3,3,3,3" Width="123" Click="addItem_Button"/>
+        <Button x:Name="backwardButton" Content="&lt;" HorizontalAlignment="Left" Margin="274,250,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" BorderBrush="Orange" BorderThickness="3,3,3,3" Width="123" Click="removeItem_Button"/>
+        <Button x:Name="splitBillButton" Content="Split Bill" Margin="660,167,10,0" VerticalAlignment="Top" BorderBrush="Orange" BorderThickness="3,3,3,3" FontSize="26" Click="splitBill_Button" Height="59"/>
+        <Button x:Name="closeButton" Content="Close" Margin="663,246,10,0" VerticalAlignment="Top" BorderBrush="Orange" BorderThickness="3,3,3,3" FontSize="26" Height="59" Click="closeButton_Click"/>
+        <!-- <Button x:Name="saveSplitBill" Content="Save" HorizontalAlignment="Left" Margin="660,248,0,0" VerticalAlignment="Top" BorderBrush="Orange" BorderThickness="3,3,3,3" FontSize="26" Click="saveSplitBill_Click" Height="59" Width="127"/>
+        -->
+        <ListBox x:Name="customerItemsListBox" HorizontalAlignment="Left" Margin="40,364,0,10" Width="590">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding CustomerLabel}" />
+                        <ItemsControl ItemsSource="{Binding Items}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Margin="10,0,0,0" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>

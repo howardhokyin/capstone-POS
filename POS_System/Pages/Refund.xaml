@@ -1,0 +1,73 @@
+﻿<Window x:Class="POS_System.Pages.Refund"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System.Pages"
+        mc:Ignorable="d"
+        Title="Refund" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="paymentGrid" ItemsSource="{Binding}" Margin="19,130,18,202" Grid.Row="1" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" SelectionChanged="paymentGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Payment ID" Binding="{Binding payment_id}" Width="Auto" />
+                <DataGridTextColumn Header="Order ID" Binding="{Binding order_id}" Width="Auto" />
+                <DataGridTextColumn Header="Payment Amt." Binding="{Binding payment_method}" Width="Auto" />
+                <DataGridTextColumn Header="Base Amt." Binding="{Binding base_amount}" Width="Auto" />
+                <DataGridTextColumn Header="GST" Binding="{Binding GST}"  Width="Auto"/>
+                <DataGridTextColumn Header="Total Amt." Binding="{Binding total_amount}" Width="Auto" />
+                <DataGridTextColumn Header="Gross Amt." Binding="{Binding gross_amount}" Width="Auto" />
+                <DataGridTextColumn Header="Change Amt." Binding="{Binding customer_change_amount}" Width="Auto"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="Auto" />
+                <DataGridTextColumn Header="Timestamp" Binding="{Binding payment_timestamp}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Text="Refund Page" Margin="19,8,609,460" Grid.RowSpan="2" FontSize="18" FontWeight="Bold" TextDecorations="Underline"/>
+
+        <DatePicker Name="fromDate"  HorizontalAlignment="Left" Margin="188,42,0,0" VerticalAlignment="Top" Height="29" Width="270" SelectedDateFormat="Short" Grid.Row="1"/>
+        <DatePicker Name="untilDate" HorizontalAlignment="Left" Margin="512,42,0,0" VerticalAlignment="Top" Height="29" Width="270" SelectedDateFormat="short" Grid.Row="1"/>
+        <TextBlock  Text="Date" Margin="19,45,738,429" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="From:" Margin="134,45,612,429" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="To:" Margin="489,45,268,327" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Order ID:" Margin="127,80,559,402" Grid.Row="1"/>
+        <TextBox x:Name="orderIdBoxFilter" HorizontalAlignment="Left" Margin="188,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Payment ID:" Margin="441,80,245,401" Grid.Row="1"/>
+        <TextBox x:Name="paymentIdBox" HorizontalAlignment="Left" Margin="512,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Total Amount" Margin="19,103,675,269" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="From Amount:" Margin="107,103,579,375" Grid.Row="1"/>
+        <TextBox x:Name="fromAmountBoxFilter" HorizontalAlignment="Left" Margin="188,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="To Amount:" Margin="443,103,271,378" Grid.Row="1"/>
+        <TextBox x:Name="toAmountBoxFilter" HorizontalAlignment="Left" Margin="512,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <Button Name="filterBtn" Content="Filter" HorizontalAlignment="Left" Margin="680,78,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="FilterBtn_Click" Grid.Row="1"/>
+
+        <TextBlock Text="Refund Payment ID:" Margin="5,304,673,178" Grid.Row="1"/>
+        <TextBox x:Name="refundPaymentIdBox" HorizontalAlignment="Left" Margin="127,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Refund Amount:" Margin="10,334,676,148" Grid.Row="1"/>
+        <TextBox x:Name="refundAmountBox" HorizontalAlignment="Left" Margin="127,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Refund Method:" Margin="10,367,676,114" Grid.Row="1"/>
+        <ComboBox x:Name="refundMethodComboBox" Margin="127,364,520,117" Grid.Row="1">
+            <ComboBoxItem>Cash</ComboBoxItem>
+            <ComboBoxItem>M/C</ComboBoxItem>
+            <ComboBoxItem>Visa</ComboBoxItem>
+            <ComboBoxItem>Amex</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock TextWrapping="Wrap" Text="Refund Reason:" Margin="298,303,388,173" Grid.Row="1"/>
+        <TextBox x:Name="refundReasonBox" HorizontalAlignment="Left" Margin="385,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Grid.Row="1" Height="80"/>
+
+        <Button x:Name="refundBtn" Content="Refund" HorizontalAlignment="Left" Margin="680,303,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="RefundBtn_Click" Grid.Row="1"/>
+
+
+    </Grid>
+</Window>

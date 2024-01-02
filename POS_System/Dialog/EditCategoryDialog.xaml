@@ -1,0 +1,18 @@
+﻿<Window x:Class="POS_System.EditCategoryDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System"
+        mc:Ignorable="d"
+        Title="Edit Category" Height="300" Width="500">
+    <Grid>
+        <Label Content="Category Name:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="CategoryNameTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="123,0,0,0" Width="320" />
+        
+        <Label Content="Category ID:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,98,0,0"/>
+        <TextBox x:Name="CategoryIdTextBox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="123,102,0,0" Width="320"/>
+
+        <Button Content="Save" Click="SaveButton_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="461,114,0,0"/>
+    </Grid>
+</Window>

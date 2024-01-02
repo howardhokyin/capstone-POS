@@ -1,0 +1,63 @@
+﻿<Window x:Class="POS_System.Pages.OrderedItemReport" x:Name="printReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System.Pages"
+        mc:Ignorable="d"
+        Title="Ordered Itemlist Report" Width="850" Height="650" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="orderedItemListGrid" ItemsSource="{Binding}" Margin="18,166,18,9" Grid.Row="1" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order ID" Binding="{Binding order_id}" />
+                <DataGridTextColumn Header="Item ID" Binding="{Binding item_id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding total_amount}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding quantity}" />
+                <DataGridTextColumn Header="Category" Binding="{Binding item_category}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding order_timestamp}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock TextWrapping="Wrap" Text="Filter" Margin="38,8,719,402" Grid.RowSpan="2" FontSize="18" FontWeight="Bold" TextDecorations="Underline"/>
+
+        <DatePicker Name="fromDate"  HorizontalAlignment="Left" Margin="195,42,0,0" VerticalAlignment="Top" Height="29" Width="270" SelectedDateFormat="Short" Grid.Row="1"/>
+        <DatePicker Name="untilDate" HorizontalAlignment="Left" Margin="515,42,0,0" VerticalAlignment="Top" Height="29" Width="270" SelectedDateFormat="short" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="Date" Margin="38,45,719,327" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="From:" Margin="152,45,605,327" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="To:" Margin="489,45,268,327" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Order ID(s):" Margin="38,80,648,292" Grid.Row="1"/>
+        <TextBox Name="orderIdBoxFilter" HorizontalAlignment="Left" Margin="106,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Item ID(s):" Margin="273,80,413,292" Grid.Row="1"/>
+        <TextBox x:Name="itemIdBoxFilter" HorizontalAlignment="Left" Margin="334,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Category:" Margin="501,80,185,292" Grid.Row="1"/>
+        <TextBox x:Name="categoryBoxFilter" HorizontalAlignment="Left" Margin="558,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="From Quantity:" Margin="151,109,563,263" Grid.Row="1"/>
+        <TextBox x:Name="fromQuantityBoxFilter" HorizontalAlignment="Left" Margin="262,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="To Quantity:" Margin="430,109,284,263" Grid.Row="1"/>
+        <TextBox x:Name="toQuantityBoxFilter" HorizontalAlignment="Left" Margin="496,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Total Price" Margin="38,140,656,232" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="From Price:" Margin="151,140,535,232" Grid.Row="1"/>
+        <TextBox x:Name="fromPriceBoxFilter" HorizontalAlignment="Left" Margin="262,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="To Price:" Margin="430,140,284,232" Grid.Row="1"/>
+        <TextBox x:Name="toPriceBoxFilter" HorizontalAlignment="Left" Margin="496,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+
+        <Button Name="filterBtn" Content="Filter" HorizontalAlignment="Left" Margin="680,108,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="filterBtn_Click" Grid.Row="1"/>
+        <Button x:Name="printBtn" Content="Print Report" HorizontalAlignment="Left" Margin="680,138,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="printBtn_Click" Grid.Row="1"/>
+
+
+
+
+    </Grid>
+</Window>

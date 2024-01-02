@@ -1,0 +1,22 @@
+﻿<Window x:Class="POS_System.Dialog.WelcomeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_System.Dialog"
+        mc:Ignorable="d"
+        Title="Welcome" Height="207" Width="550" Background="#212121" WindowStyle="None" ResizeMode="NoResize"  KeyDown="OnKeyDownHandler">
+    <Grid Height="209" VerticalAlignment="Top">
+        <Label HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="46" Width="266" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White">
+            <TextBlock Foreground="White" FontSize="25" FontFamily="Verdana" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NumberOfPeopleTextBlock" Height="29" Width="215" Text="Successful login!" />
+        </Label>
+        <Label HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top" Height="38" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White">
+            <TextBlock Foreground="Orange" FontSize="25" FontFamily="Verdana" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NumberOfPeopleTextBlock1" Height="36" Width="127" ><Run Language="en-ca" Text="Welcome"/><Run Text="!"/></TextBlock>
+        </Label>
+        <TextBlock Name="UserIDTextBlock" Margin="155,99,155,0" TextWrapping="Wrap" TextAlignment="Center" Foreground="Orange" FontSize="40" FontWeight="Bold" FontFamily="Verdana" Height="51" VerticalAlignment="Top" />
+        <Button Content="OK" Background="Orange" BorderBrush="#FF4C4B56" FontSize="25" FontFamily="Verdana" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Width="170" Height="42" Margin="0,155,0,0" Click="OK_Click"  x:Name="OK_Button" />
+        <Image Name="userIcon" HorizontalAlignment="Left" Height="100" Margin="408,75,0,0" VerticalAlignment="Top" Width="100"/>
+
+
+    </Grid>
+</Window>
