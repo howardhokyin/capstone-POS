@@ -5,3 +5,14 @@
 ## Stack
 - C# (MVC)
 - Database MySQL
+
+## Member
+- [Piriya Kantong (PK)](https://github.com/Piriya-K)
+- Ma Cubay (Ysa)
+- Thevagi Vimal
+- [Kihyun Kim (Jack)](https://github.com/PlanetJack)
+- Gurleen Kaur
+- Howard Lee
+
+
+
