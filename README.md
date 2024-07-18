@@ -1,4 +1,4 @@
-# SAIT Capstone Project
+# SAIT Capstone Project - `POS system`
 
 - Build POS system for local restaurant 
 
