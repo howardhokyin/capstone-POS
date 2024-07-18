@@ -1,3 +1,7 @@
 # SAIT Capstone Project
 
-### Created with C# (MVC),
+- Build POS system for local restaurant 
+
+## Stack
+- C# (MVC)
+- Database MySQL
