@@ -3,8 +3,10 @@
 - Build POS system for local restaurant 
 
 ## Stack
-- C# (MVC)
+- C#
+- XAML
 - Database MySQL
+- IDE: Visual Studio
 
 ## Member
 - [Piriya Kantong (PK)](https://github.com/Piriya-K)
